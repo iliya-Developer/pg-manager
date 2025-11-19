@@ -249,10 +249,7 @@ def create_users_for_chat(chat_id):
 
         try:
             resp = requests.post(API_URL, json=payload)
-            try:
-                data = resp.json()
-            except Exception:
-                data = {"raw": resp.text}
+            data = resp.json()
 
             if resp.status_code == 200 and data.get("success", True):
                 success_count += 1
